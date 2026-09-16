@@ -10,6 +10,7 @@ describe('main', () => {
       await import('./main')
     })
 
-    expect(root.querySelector('h1')).toHaveTextContent('Pokefan')
+    expect(root.querySelector('nav')).not.toBeNull()
+    expect(root.querySelector('h1')).toHaveTextContent('Home')
   })
 })
