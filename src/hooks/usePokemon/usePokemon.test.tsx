@@ -1,17 +1,14 @@
 import { renderHook } from '@testing-library/react'
-import type { FC, ReactNode } from 'react'
 import PokemonContext from '@context/PokemonContext'
 import usePokemon from './usePokemon'
 
 const pokemon = [{ id: 1, name: 'bulbasaur', image: 'bulbasaur.png', types: ['grass'] }]
 
-const wrapper: FC<{ children: ReactNode }> = ({ children }) => (
-  <PokemonContext.Provider value={pokemon}>{children}</PokemonContext.Provider>
-)
-
 describe('usePokemon', () => {
   test('returns the pokemon from the provider', () => {
-    const { result } = renderHook(() => usePokemon(), { wrapper })
+    const { result } = renderHook(() => usePokemon(), {
+      wrapper: ({ children }) => <PokemonContext.Provider value={pokemon}>{children}</PokemonContext.Provider>,
+    })
 
     expect(result.current).toBe(pokemon)
   })

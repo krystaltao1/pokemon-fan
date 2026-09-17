@@ -3,12 +3,15 @@ import fetchPokemonList from '@api/fetchPokemonList'
 import useFetchPokemon from './useFetchPokemon'
 
 vi.mock('@api/fetchPokemonList')
-
 const fetchPokemonListMock = vi.mocked(fetchPokemonList)
 
 const pokemon = [{ id: 1, name: 'bulbasaur', image: 'bulbasaur.png', types: ['grass'] }]
 
 describe('useFetchPokemon', () => {
+  afterEach(() => {
+    vi.clearAllMocks()
+  })
+
   test('starts loading without data or error', () => {
     fetchPokemonListMock.mockReturnValue(new Promise(() => {}))
 

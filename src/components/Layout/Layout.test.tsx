@@ -9,7 +9,7 @@ describe('Layout', () => {
         <Layout>
           <p>Page content</p>
         </Layout>
-      </MemoryRouter>,
+      </MemoryRouter>
     )
 
     expect(screen.getByRole('navigation')).toBeInTheDocument()

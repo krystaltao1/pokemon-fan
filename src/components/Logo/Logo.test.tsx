@@ -7,7 +7,7 @@ describe('Logo', () => {
     render(
       <MemoryRouter>
         <Logo />
-      </MemoryRouter>,
+      </MemoryRouter>
     )
 
     expect(screen.getByRole('link', { name: '⚡ Pokefan' })).toHaveAttribute('href', '/')
